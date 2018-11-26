@@ -1,6 +1,8 @@
-import _ from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
+import window from 'global/window';
+
+const { _ } = window;
 
 const Title = styled.div`
   font-size: 1em;

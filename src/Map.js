@@ -1,10 +1,8 @@
-import _ from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
 import window from 'global/window';
-import map from './taiwan.json';
 
-const { d3 } = window;
+const { _, d3 } = window;
 
 const Title = styled.div`
   font-size: 1em;
@@ -51,6 +49,7 @@ const Legend = styled.div`
 `;
 
 const draw = (results, color) => {
+  const { map } = window;
 	const context = d3.select("#map").node().getContext("2d");
 	const projection = d3.geoMercator().center([121,23,5]).scale(8000).translate([500,400]);
   const geoGenerator = d3.geoPath().projection(projection).context(context);
@@ -80,6 +79,12 @@ export default class extends React.Component {
   state = {
     results: [],
     resultRights: [],
+    ready: false,
+  }
+
+  async componentDidMount() {
+    if (!window.map) window.map = await d3.json('./taiwan.json');
+    this.setState({ ready: true });
   }
 
   onYesClick = () => {
@@ -116,10 +121,13 @@ export default class extends React.Component {
   }
 
   render() {
-    const { results, resultRights } = this.state;
+    const { results, resultRights, ready } = this.state;
+
+    if (!ready) return (<Title>地圖載入中，請稍候...</Title>);
+
     return (
       <div>
-        <Title>步驟二：請要查看 同意票 或 不同意票</Title>
+        <Title>步驟二：請選擇要查看 同意票 或 不同意票</Title>
         <Toolbar>
           <button onClick={this.onYesClick}>同意票</button>
           <button onClick={this.onNoClick}>不同意票</button>
