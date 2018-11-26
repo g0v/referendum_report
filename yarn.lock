@@ -2764,6 +2764,11 @@ cssstyle@^1.0.0, cssstyle@^1.1.1:
   dependencies:
     cssom "0.3.x"
 
+csv-parse@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-4.0.1.tgz#4ad438352cbf12d5317d0fb9d588e53473293851"
+  integrity sha512-ehkwejEj05wwO7Q9JD+YSI6dNMIauHIroNU1RALrmRrqPoZIwRnfBtgq5GkU6i2RxZOJqjo3dtI1NrVSXvaimA==
+
 csv-stringify@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/csv-stringify/-/csv-stringify-5.0.0.tgz#7248acd769a6cf74201fd43ded7b806dd51aff1f"
