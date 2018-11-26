@@ -1,8 +1,10 @@
 import _ from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
-import * as d3 from 'd3';
+import window from 'global/window';
 import map from './taiwan.json';
+
+const { d3 } = window;
 
 const Title = styled.div`
   font-size: 1em;

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import * as d3 from 'd3';
+import window from 'global/window';
 import Menu from './Menu';
 import Map from './Map';
+
+const { d3 } = window;
 
 const Document = styled.div`;
   width: 100%;
